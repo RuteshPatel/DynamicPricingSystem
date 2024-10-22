@@ -3,8 +3,6 @@
 
     This module contains constants for the Dynamic Pricing System.
 """
-DEFAULT_CURRENCY = 'USD'
-MAX_DISCOUNT = 50  # Maximum allowed discount percentage
 CREATED_SUCCESSFULLY = "{module} created successfully"
 UPDATED_SUCCESSFULLY = "{module} updated successfully"
 DELETED_SUCCESSFULLY = "{module} deleted successfully"

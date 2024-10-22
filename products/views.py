@@ -78,7 +78,7 @@ class SeasonalProductListCreateView(generics.ListCreateAPIView):
             Response: A response containing the created seasonal product data or error details.
         """
         serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response({
                 'message': CREATED_SUCCESSFULLY.replace("{module}", SEASONAL_PRODUCT),
@@ -116,7 +116,7 @@ class BulkProductListCreateView(generics.ListCreateAPIView):
             Response: A response containing the created bulk product data or error details.
         """
         serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(
                 {'message': CREATED_SUCCESSFULLY.replace("{module}", BULK_PRODUCT), 'data': serializer.data},

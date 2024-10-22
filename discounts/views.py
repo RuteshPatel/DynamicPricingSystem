@@ -42,7 +42,7 @@ class DiscountListCreateView(generics.ListCreateAPIView):
             Response: A response containing the created discount data or error details.
         """
         serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response({'message': CREATED_SUCCESSFULLY.replace("{module}", DISCOUNT), 'data': serializer.data},
                             status=status.HTTP_201_CREATED)
@@ -78,7 +78,7 @@ class PercentageDiscountListCreateView(generics.ListCreateAPIView):
             Response: A response containing the created percentage discount data or error details.
         """
         serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(
                 {'message': CREATED_SUCCESSFULLY.replace("{module}", PERCENTAGE_DISCOUNT), 'data': serializer.data},
@@ -116,7 +116,7 @@ class FixedAmountDiscountListCreateView(generics.ListCreateAPIView):
             Response: A response containing the created fixed amount discount data or error details.
         """
         serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(
                 {'message': CREATED_SUCCESSFULLY.replace("{module}", FIXED_AMOUNT_DISCOUNT), 'data': serializer.data},
